@@ -1,6 +1,6 @@
-baseURL = ''
+baseURL = 'sevban.dev'
 languageCode = 'en-us'
-title = 'Portfolio'
+title = 'Sevban Bayrak'
 theme = 'hugo-theme-shell'
 
 [Params]
@@ -63,6 +63,7 @@ theme = 'hugo-theme-shell'
   description = """
      Wake up, Neo...
      The Matrix has you...
+     I'm Sevban Bayrak
      Follow the github.com/svbnbyrk
      Knock, knock Neo.
 
@@ -74,7 +75,7 @@ theme = 'hugo-theme-shell'
 
   [Params.Tree]
   use = true
-  folderName = "my_activity"
+  folderName = "skills"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
     ["Go", "https://golang.org/"],
