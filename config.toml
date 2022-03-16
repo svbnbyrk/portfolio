@@ -77,11 +77,11 @@ theme = 'hugo-theme-shell'
   folderName = "my_activity"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
-    ["C/C++", "https://www.example.com/"],
-    ["Python", "https://www.example.com/"],
     ["Go", "https://golang.org/"],
-    ["Hugo", "/post/some-activity.md"],
-    ["Docker", "/post/some-activity.md"],
+    ["C#", ""],
+    ["Azure", ""],
+    ["Microservices", ""],
+    ["Cyber Security", ""],
   ]
 
 [module]
