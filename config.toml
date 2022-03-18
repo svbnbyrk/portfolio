@@ -83,6 +83,7 @@ theme = 'hugo-theme-shell'
     ["Azure", ""],
     ["Microservices", ""],
     ["Cyber Security", ""],
+    ["Who am I?", "/whoami.md"],
   ]
 
 [module]
