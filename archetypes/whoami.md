@@ -1,3 +1,0 @@
-# WELCOME TO THE DESERT... 
-
-Hi! I am Sevban, I usually deal with backend technologies, read cyber security and drink **kımız**. 
