@@ -61,7 +61,7 @@ params:
     enabled: true # needs to be explicitly set
     title: Sevban Bayrak  
     subtitle: "Software Developer"
-    imageUrl: "images/pp.jpg"
+    imageUrl: "https://github.com/svbnbyrk/portfolio/blob/master/resources/_gen/images/pp.jpg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
