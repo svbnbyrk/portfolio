@@ -61,7 +61,7 @@ params:
     enabled: false # needs to be explicitly set
     title: Sevban Bayrak  
     subtitle: "Software Developer"
-    imageUrl: "https://raw.githubusercontent.com/svbnbyrk/portfolio/master/resources/_gen/images/pp.jpg"
+    imageUrl: "/images/pp.jpg"
     imageWidth: 150
     imageHeight: 150
     imageTitle: my image
@@ -139,7 +139,7 @@ pygmentsUseClasses: true
 markup:
   highlight:
     noClasses: false
-    # anchorLineNos: true
+    # anchorLineNos:  true
     # codeFences: true
     # guessSyntax: true
     # lineNos: true
