@@ -2,8 +2,8 @@
 title: "WTF's Golang?"
 date: 2022-13-11T16:54:03+00:00
 weight: 1
-aliases: ["/posts/wtf-golang"]
-tags: ["go","en"]
+aliases: ["/posts/wtfs-golang"]
+tags: ["go","en","concurrency","channel","goroutine"]
 author: "Me"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -84,10 +84,10 @@ Concurrency is the composition of independently executing computations. Concurre
 
 Who saves gophers from the **difficulties(threads, semaphores, locks, etc.)** of parallelism?
 
-### WTF's Goroutine?
+### Goroutine
 ![goroutines](/images/goroutines.png)
 
-You may have heard the **Goroutine** for the first time, but if you've ever print "Hello World" with Go, congratulations!. You have unwittingly used a goroutine. The `func main()` is actually the Goroutine. It wouldn't be the wrong to call it a **_lightweight thread_**. It has own stack that grows or shrinks when required. The minimum stack size of goroutine is just a **2MB**. As it is known, threads are controlled by **OS** but goroutine is controlled by **_own runtime_**, this makes it cheap for example it provides low cost **_context-switching_**. It's launched by a `go` statement. 
+You may have heard the **Goroutine** for the first time, but if you've ever print "Hello World" with Go, congratulations!. You have unwittingly used a goroutine. The `func main()` is actually the Goroutine. It wouldn't be the wrong to call it a **_lightweight thread_**. It has own stack that grows or shrinks when required (Up to 1GB on 64-bit and up to 250MB on 32-bit architectures). The minimum stack size of goroutine is just a **2MB**. As it is known, threads are controlled by **OS** but goroutine is controlled by **_own runtime_**, this makes it cheap for example it provides low cost **_context-switching_**. It's launched by a `go` statement. 
 
 **For example:**
 
@@ -105,8 +105,45 @@ func main() {
 Goroutine is an independently executing function. So how do you communicate between two Goroutines?
 
 ### Channels
+**_"Do not communicate by sharing memory; instead, share memory by communicating"_**
 
-Thank you for reading. Your feedback is very important for me.
+When goroutines communicate by sharing memory, we use traditional concurrency synchronization techniques, such as mutex locks, to protect the shared memory to prevent data races. We can use channels to implement sharing memory by communicating.
 
-![goroutines](/images/tobecontinied.png)
+![channels](/images/channels.png)
 
+Golang provides a unique concurrency synchronization technique, **channel**. Channels make goroutines share memory by communicating. We can view a channel as an internal FIFO (first in, first out) queue within a program. Some goroutines send values to the queue (the channel) and some other goroutines receive values from the queue.
+
+
+
+```
+   // Declaring and initializing.
+    var c chan int
+    c = make(chan int)
+    // or
+    c := make(chan int)
+
+    // Sending on a channel.
+    c <- 1
+
+    // Receiving from a channel.
+    // The "arrow" indicates the direction of data flow.
+    value = <-c
+```
+Channel can only transfer values of the element type of the channel. Channel types can be bi-directional or single-directional (T is any type)
+
+- chan T denotes a bidirectional channel type. Compilers allow both receiving values from and sending values to bidirectional channels.
+- chan<- T denotes a send-only channel type. Compilers don't allow receiving values from send-only channels.
+- <-chan T denotes a receive-only channel type. Compilers don't allow sending values to receive-only channels.
+
+Values of bidirectional channel type chan T can be implicitly converted to both type, but receive-only type and send-only type cannot be converted to each other.
+
+
+We'll dive deeper in the next post. Thank you for reading. Your feedback is very important for me. 
+
+**_To be continued..._**
+
+#### Resources 
+
+- https://go.dev/talks
+- https://go101.org
+- https://go.dev/tour
